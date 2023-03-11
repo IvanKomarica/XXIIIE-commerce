@@ -9,4 +9,5 @@ return
     'title' => 'Main',
     'product' => 'Product',
     'all_categories' => 'All categories',
+    'category' => 'Category'
 ];
