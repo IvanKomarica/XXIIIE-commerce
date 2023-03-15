@@ -16,17 +16,17 @@ class CategorySeeder extends Seeder
         [
             [
                 'name' => 'cell_phones',
-                'code' => '1',
+                'code' => 1,
                 'description' => 'Description of mobile phones',
             ],
             [
                 'name' => 'portable_tech',
-                'code' => '2',
+                'code' => 2,
                 'description' => 'Description of portable equipment',
             ],
             [
                 'name' => 'appliances',
-                'code' => '3',
+                'code' => 3,
                 'description' => 'Description of household appliances',
             ]
         ];

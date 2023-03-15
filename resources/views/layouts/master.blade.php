@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top  mt-2">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{ route('index') }}">@lang('main.online_shop')</a>
@@ -23,13 +23,19 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('index') }}">@lang('main.all_products')</a></li>
                     <li><a href="{{ route('categories') }}">@lang('main.categories')</a></li>
-                    <li><a href="{{ route('index') }}">@lang('main.cart')</a></li>
+                    <li><a href="{{ route('basket') }}">@lang('main.cart')</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container">
         <div class="starter-template">
+            @if(session()->has('success'))
+                <p class="alert alert-success">{{ session()->get('success') }}</p>
+            @endif
+            @if(session()->has('warning'))
+                <p class="alert alert-warning">{{ session()->get('warning') }}</p>
+            @endif
             @yield('content')
         </div>
     </div>
