@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,15 +13,38 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false,
+]);
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::group([
+    'middleware' => 'auth',
+    /*'namespace' => 'Admin',*/
+    ], function(){
+    Route::middleware(['is_admin'])->group(function () {
+        Route::get('/orders', 'Admin\OrderController@index')->name('home');
+    });
+});
+Route::group([
+    'middleware' => 'basket_is_not_empty'
+], function(){
+    Route::get('/order-place', 'BasketController@orderPlace')->name('order-place');
+    Route::post('/order-confirm', 'BasketController@orderConfirm')->name('order-confirm');
+    Route::get('/basket', 'BasketController@basket')->name('basket');
+    Route::post('basket/add/{id}', 'BasketController@basketAdd')->name('basket-add');
+    Route::post('basket/remove/{id}', 'BasketController@basketRemove')->name('basket-remove');
+});
+
 Route::get('/', 'MainController@index')->name('index');
 Route::get('/categories', 'MainController@categories')->name('categories');
 Route::get('/category/{code}', 'MainController@category')->name('category');
 Route::get('/product/{category}/{code?}', 'MainController@product')->name('product');
 
-Route::get('/order-place', 'BasketController@orderPlace')->name('order-place');
-Route::post('/order-confirm', 'BasketController@orderConfirm')->name('order-confirm');
-Route::get('/basket', 'BasketController@basket')->name('basket');
-Route::post('basket/add/{id}', 'BasketController@basketAdd')->name('basket-add');
-Route::post('basket/remove/{id}', 'BasketController@basketRemove')->name('basket-remove');
+
+
+
 
 

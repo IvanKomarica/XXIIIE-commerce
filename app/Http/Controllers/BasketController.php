@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BasketController extends Controller
 {
@@ -23,7 +24,7 @@ class BasketController extends Controller
         if(is_null($orderId))
             return redirect()->route('index');
         $order = Order::find($orderId);
-        $success = $order->save([$request->name, $request->phone]);
+        $success = $order->saveOrder($request->name, $request->phone);
         if($success)
         {
             session()->flash('success', 'Your order has been processed');
@@ -51,7 +52,7 @@ class BasketController extends Controller
     public function basketAdd($productId)
     {
         $orderId = session('orderId');
-        if(is_null($orderId))
+        if(is_null(Order::find($orderId)))
         {
             $order = Order::create();
             session(['orderId' => $order->id]);
@@ -60,6 +61,7 @@ class BasketController extends Controller
         {
             $order = Order::find($orderId);
         }
+//        return session('orderId');
         if($order->products->contains($productId))
         {
             $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
@@ -69,6 +71,11 @@ class BasketController extends Controller
         else
         {
             $order->products()->attach($productId);
+        }
+        if(Auth::check())
+        {
+            $order->user_id = Auth::id();
+            $order->save();
         }
         $product = Product::find($productId);
         session()->flash('success',  'Product added ' . $product->name);
