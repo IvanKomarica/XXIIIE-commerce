@@ -23,5 +23,17 @@ return
     'price' => 'Price',
     'cost' => 'Cost',
     'full_cost' => 'Full cost',
-    'ordering' => 'Ordering'
+    'ordering' => 'Ordering',
+    'adminPanel' => 'Admin panel',
+    'backToSite' => 'Back to site',
+    'orders' => 'Orders',
+    'login' => 'Login',
+    'register' => 'Register',
+    'administrator' => 'Administrator',
+    'logout' => 'Logout',
+    'authorization' => 'Authorization',
+    'password' => 'Password',
+    'registration' => 'Registration',
+    'confirmPassword' => 'Confirm the password',
+    'open' => 'Open',
 ];

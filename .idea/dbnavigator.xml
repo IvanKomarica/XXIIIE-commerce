@@ -26,7 +26,9 @@
     <filter-actions connection-id="0145e64a-012e-4748-9253-4f4c698193f1" dataset="online_shop.orders" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="0145e64a-012e-4748-9253-4f4c698193f1" dataset="viatrucker.bills" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="0145e64a-012e-4748-9253-4f4c698193f1" dataset="online_shop.order_product" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="0145e64a-012e-4748-9253-4f4c698193f1" dataset="online_shop.users" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="0145e64a-012e-4748-9253-4f4c698193f1" dataset="viatrucker.countries" active-filter-id="" />
+    <filter-actions connection-id="0145e64a-012e-4748-9253-4f4c698193f1" dataset="viatrucker.vehicles" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="0145e64a-012e-4748-9253-4f4c698193f1" dataset="satovividic.narudzbenica" active-filter-id="60d009f7-5862-4a04-af0c-a12ba0943450">
       <filter id="60d009f7-5862-4a04-af0c-a12ba0943450" name="1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="NarudzbenicaId" operator="=" value="1" active="true" />

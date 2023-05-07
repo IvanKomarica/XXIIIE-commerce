@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master'){{----}}
 @section('title', __('main.all_categories'))
 @section('content')
     <div class="row mt-5 mb-5 justify-content-center">

@@ -6,9 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $fillable = ['name', 'phone', 'status'];
+
     public function products()
     {
         return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function calculate()
@@ -30,7 +37,7 @@ class Order extends Model
             $this->status = 1;
             $this->save();
             session()->forget('orderId');
-            return true;
+            return 1;
         }
         else
         {
