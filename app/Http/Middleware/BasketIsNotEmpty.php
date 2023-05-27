@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Order;
 use Closure;
 
 class BasketIsNotEmpty
@@ -17,12 +18,12 @@ class BasketIsNotEmpty
     {
         $orderId = session('orderId');
         if(!is_null($orderId))
-        { 
+        {
             $order = Order::findOrFail($orderId);
             if($order->products->count() === 0)
             {
-                session()->fllash('warning', 'Ваша корзина пуста');
-                return back();
+                session()->flash('warning', 'Ваша корзина пуста');
+//                return back();
             }
         }
         return $next($request);

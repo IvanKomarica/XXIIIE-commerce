@@ -18,18 +18,28 @@ Auth::routes([
     'confirm' => false,
     'verify' => false,
 ]);
+Route::get('ResetController@reset')->name('reset_db');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-
-Route::group([
-    'middleware' => 'auth',
-    /*'namespace' => 'Admin',*/
+Route::middleware(['auth'])->group(function() {
+    Route::group([
+        'prefix' => 'person'
+    ], function() {
+        Route::get('/orders', 'Person\OrderController@index')->name('orders.index');
+        Route::get('/orders/{order}', 'Person\OrderController@show')->name('orders.show');
+    });
+    Route::group([
+        'prefix' => 'admin',
+        /*'namespace' => 'Admin',*/
     ], function(){
-    Route::middleware(['is_admin'])->group(function () {
-        Route::get('/orders', 'Admin\OrderController@index')->name('home');
+        Route::middleware(['is_admin'])->group(function () {
+            Route::get('/orders', 'Admin\OrderController@index')->name('home');
+            Route::get('/orders/{order}', 'Admin\OrderController@show')->name('orders.show');
+            Route::resource('categories', 'Admin\CategoryController');
+        });
     });
 });
 Route::group([
-    'middleware' => 'basket_is_not_empty'
+    'middleware' => 'basket_not_empty'
 ], function(){
     Route::get('/order-place', 'BasketController@orderPlace')->name('order-place');
     Route::post('/order-confirm', 'BasketController@orderConfirm')->name('order-confirm');
