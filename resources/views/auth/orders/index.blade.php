@@ -19,16 +19,18 @@
                 <tr>
                     <td>{{ $order->id }}</td>
 {{--                    <td>{{ $order->user()->name }}</td>--}}
-                    <td></td>
                     <td>{{ $order->name }}</td>
                     <td>{{ $order->phone }}</td>
                     <td>{{ $order->created_at->format('H:i d/m/Y') }}</td>
-                    <td>{{--{{ $order->getFullPrice() }}--}}</td>
+                    <td>{{ $order->calculate() }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <a href="" class="btn btn-success" type="button">@lang('main.open')</a>
+                            <a class="btn btn-success" type="button"
+                               href="{{ route('orders.show', $order) }}"
+                            >Открыть</a>
                         </div>
                     </td>
+
                 </tr>
                 @endforeach
             </tbody>

@@ -31,7 +31,7 @@
                 </a>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('categories') }}">@lang('main.categories')</a></li>
+                        <li><a href="{{ route('categories.index') }}">@lang('main.categories')</a></li>
                         <li><a href="{{ route('index') }}">@lang('main.all_products')</a></li>
 {{--                        <li><a href="{{ route('orders') }}">@lang('main.orders')</a></li>--}}
                     </ul>

@@ -7,7 +7,7 @@
     <div class="panel mt-5">
         @foreach($categories as $category)
             <a href="{{ route('category', $category->code) }}">
-                {{--            <img src="{{ Storage::url($category->image) }}">--}}
+                <img src="{{ Storage::url($category->image) }}" alt="">
                 <h2>{{ $category->name }}</h2>
             </a>
             <p>

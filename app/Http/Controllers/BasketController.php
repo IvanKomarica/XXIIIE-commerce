@@ -41,10 +41,16 @@ class BasketController extends Controller
         if(!is_null($orderId))
         {
             $order = Order::findOrFail($orderId);
+            if($order->products->count() > 0)
+            {
+//              P   session()->forget('warning');
+            }
         }
         else
         {
             $order = null;
+            session()->flash('warning', 'Ваша корзина пуста');
+
         }
         return view('basket', compact('order'));
     }

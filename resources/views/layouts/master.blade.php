@@ -21,16 +21,20 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ route('index') }}">@lang('main.all_products')</a></li>
-                    <li><a href="{{ route('categories') }}">@lang('main.categories')</a></li>
-                    <li><a href="{{ route('basket') }}">@lang('main.cart')</a></li>
+                    <li @routeactive('index') ><a href="{{ route('index') }}">@lang('main.all_products')</a></li>
+                    <li @routeactive('categories') ><a href="{{ route('categories') }}">@lang('main.categories')</a></li>
+                    <li @routeactive('basket') ><a href="{{ route('basket') }}">@lang('main.cart')</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @guest
-                        <li><a href="{{ route('login') }}">Administrator panel</a></li>
+                        <li><a href="{{ route('login') }}">Login</a></li>
                     @endguest
                     @auth
-                        <li><a href="{{ route('home') }}">Administrator panel</a></li>
+                        @if(Auth::user()->isAdmin())
+                            <li><a href="{{ route('home') }}">Administrator panel</a></li>
+                        @else
+                            <li><a href="{{ route('orders.index') }}">My orders</a></li>
+                        @endif
                         <li><a href="{{ route('logout') }}">@lang('main.logout')</a></li>
                     @endauth
                 </ul>

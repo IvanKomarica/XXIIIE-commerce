@@ -21,7 +21,10 @@
                 @isset($order)
                     @foreach($order->products as $product)
                         <tr>
-                            <td><a href="{{ route('product', [$product->category->code, $product->code]) }}">{{ $product->name }}</a></td>
+                            <td><a href="{{ route('product', [$product->category->code, $product->code]) }}">
+                                    <img src="{{ Storage::url($product->image) }}" alt="">
+                                    {{ $product->name }}
+                                </a></td>
                             <td>
                                 <div class="btn-group form-inline">
                                     {{ $product->pivot->count }}

@@ -1,5 +1,6 @@
 <div class="col-sm-6 col-md-5">
     <div class="thumbnail">
+        <img src="{{ Storage::url($product->image) }}" alt="">
         <div class="caption">
             <h3>{{ $product->name }}</h3>
             <p>{{ $product->price }}</p>
