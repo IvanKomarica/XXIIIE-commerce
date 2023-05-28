@@ -11,6 +11,7 @@ class MainController extends Controller
 {
     public function index(Request $request)
     {
+
 //        if($request->all())
 //        dd($request->all());
 //        dump($request->all());
@@ -27,7 +28,7 @@ class MainController extends Controller
         {
             if($request->has($field))
             {
-                $productsQuery->where($field, 1);
+                $productsQuery->$field();
             }
         }
         $products = $productsQuery->paginate(6)->withPath("?" . $request->getQueryString());

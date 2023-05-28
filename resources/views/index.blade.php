@@ -2,10 +2,10 @@
 @section('title', __('main.title'))
 @section('content')
 {{--    <div class="row mt-5 mb-5 justify-content-center">--}}
-        <h1 >@lang('main.all_products')</h1>
-        <form method="GET" action="{{ route('index') }}">
+        <h1 class="mb-5">@lang('main.all_products')</h1>
+        <form class="mb-5" method="GET" action="{{ route('index') }}">
             <div class="filters row">
-                <div class="col-sm-6 col-md-3">
+                <div class="col-sm-6 col-md-4">
                     <label for="price_from">@lang('main.price_from')
                         <input type="text" name="price_from" id="price_from" size="6" value="{{ request()->price_from }}">
                     </label>

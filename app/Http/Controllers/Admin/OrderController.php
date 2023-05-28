@@ -8,7 +8,7 @@ class OrderController
 {
     public function index()
     {
-        $orders = Order::where('status', 1)->get();
+        $orders = Order::active()->get();
         return view('auth.orders.index', compact('orders'));
     }
 

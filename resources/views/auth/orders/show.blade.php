@@ -32,7 +32,7 @@
                         @endforeach
                         <tr>
                             <td colspan="3">@lang('main.totalCost'):</td>
-                            <td>{{ $order->calculate() }}</td>
+                            <td>{{ $order->calculateFullPrice() }}</td>
                         </tr>
                         </tbody>
                     </table>
