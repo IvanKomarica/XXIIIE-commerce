@@ -23,7 +23,7 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function calculate()
+    public function calculateFullPrice()
     {
         $sum = 0;
         foreach($this->products  as $product)
@@ -31,6 +31,10 @@ class Order extends Model
             $sum += $product->getPriceForCount();
         }
         return $sum;
+    }
+    public static function getFullPrice()
+    {
+        return session('full_order_sum', 0);
     }
 
     public function saveOrder($name, $phone)
@@ -48,5 +52,10 @@ class Order extends Model
         {
             return false;
         }
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
     }
 }

@@ -49,7 +49,7 @@
                     @endforeach
                     <tr>
                         <td colspan="3">Total cost: </td>
-                        <td> {{ $order->calculate() }} </td>
+                        <td> {{ $order->calculateFullPrice() }} </td>
                     </tr>
                 @endisset
             </tbody>
