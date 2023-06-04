@@ -1,3 +1,3 @@
 @error($fieldname)
-<div class="alert alert-danger">{{ $message }}</div>
+<div class="alert alert-danger alert-error">{{ $message }}</div>
 @enderror

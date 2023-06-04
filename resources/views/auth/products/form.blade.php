@@ -6,135 +6,108 @@
 @endisset
 
 @section('content')
-    <div class="col-md-12">
+    <div class="row justify-content-center mt-5 mb-5">
         @isset($product)
             <h1>@lang('main.editProduct')<b>{{ $product->name }}</b></h1>
         @else
-            <h1>@lang('main.addProduct')</h1>
+            <h1 class="text-center">@lang('main.addProduct')</h1>
         @endisset
-        <form method="POST" enctype="multipart/form-data"
-            @isset($product)
-                action="{{ route('products.update', $product) }}"
-            @else
-                action="{{ route('products.store') }}"
-            @endisset
-        >
-            <div>
+    </div>
+    <div class="row justify-content-center">
+            <form method="POST" class="col-md-5 mt-5 big-shadow" style="padding: 40px; border-radius: 11px" enctype="multipart/form-data"
                 @isset($product)
-                    @method('PUT')
+                    action="{{ route('products.update', $product) }}"
+                @else
+                    action="{{ route('products.store') }}"
                 @endisset
-                @csrf
-                <div class="input-group row">
-                    <label for="code" class="col-sm-2 col-form-label">@lang('main.code'): </label>
-                    <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'code'])
-                        <input type="text" class="form-control" name="code" id="code"
-                            value="@isset($product){{ $product->code }}@endisset"
-                        >
-                    </div>
+            >
+                    @isset($product)
+                        @method('PUT')
+                    @endisset
+                    @csrf
+                <div class="form-group text-center">
+                    <label for="code">@lang('main.code'): <span class="text-danger h3">*</span></label>
+                    <input type="text" class="form-control" id="code" name="code" value="@isset($product){{ $product->code }}@endisset" placeholder="@lang('main.code')">
+                    @include('auth.layouts.error', ['fieldName' => 'code'])
+{{--                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
                 </div>
-                <br>
-                <div class="input-group row">
-                    <label for="name" class="col-sm-2 col-form-label">@lang('main.data.name'):</label>
-                    <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'name'])
-                        <input type="text" class="form-control" name="name" id="name"
-                            value="@isset($product){{ $product->name }}@endisset"
-                        >
-                    </div>
+                <div class="form-group text-center">
+                    <label for="name">@lang('main.data.name'): <span class="text-danger h3">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" value="@isset($product){{ $product->name }}@endisset" placeholder="@lang('main.data.name')">
+                    @include('auth.layouts.error', ['fieldName' => 'name'])
                 </div>
-                <br>
-                <div class="input-group row">
-                    <label for="name" class="col-sm-2 col-form-label">@lang('main.data.name') en:</label>
-                    <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'name_en'])
-                        <input type="text" class="form-control" name="name_en" id="name_en"
-                            value="@isset($product){{ $product->name_en }}@endisset"
-                        >
-                    </div>
+                <div class="form-group text-center">
+                    <label for="name_en">@lang('main.data.name') en: </label>
+                    <input type="text" class="form-control" id="name_en" name="name_en" value="@isset($product){{ $product->name_en }}@endisset" placeholder="@lang('main.data.name') en:">
+                    @include('auth.layouts.error', ['fieldName' => 'name_en'])
                 </div>
-                <div class="input-group row">
-                    <label for="category_id" class="col-sm-2 col-form-label">@lang('main.category')</label>
-                    <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'category_id'])
+                <div class="form-group text-center">
+                    <label for="category_id" >@lang('main.category')</label>
                         <select class="form-control" name="category_id" id="category_id">
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}"
                                     @isset($product)
-                                        @if($product->$category_id === $category->id)
+                                        @if($product->category_id === $category->id)
                                             selected
                                         @endif
                                     @endisset
                                 >
                                     {{ $category->name }}
                                 </option>
-                            @endforeach
+                          @endforeach
                         </select>
-                    </div>
+                    @include('auth.layouts.error', ['fieldName' => 'category_id'])
                 </div>
-                <div class="input-group-row">
-                    <label for="description" class="col-sm-2 col-form-label">@lang('main.description')</label>
-                    <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'description'])
-                        <textarea name="description" id="description" cols="72" rows="7">
-                            @isset($product){{ $product->description }}@endisset
-                        </textarea>
-                    </div>
+                <div class="form-group text-center">
+                    <label for="price">@lang('main.price'):  <span class="text-danger h3">*</span></label>
+                    <input type="text" class="form-control" id="price" name="price" value="@isset($product){{ $product->price }}@endisset" placeholder="@lang('main.price')">
+                    @include('auth.layouts.error', ['fieldName' => 'price'])
                 </div>
-                <br>
-                <div class="input-group-row">
-                    <label for="description" class="col-sm-2 col-form-label">@lang('main.description') en:</label>
-                    <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'description_en'])
-                        <textarea name="description_en" id="description_en" cols="72" rows="7">
-                            @isset($product){{ $product->description_en }}@endisset
-                        </textarea>
-                    </div>
+               <div class="form-group text-center">
+                   <label for="description">@lang('main.description')  <span class="text-danger h3">*</span></label>
+                   <textarea name="description" id="description"  rows="4" cols="49">
+                       @isset($product){{ $product->description }}@endisset
+                   </textarea>
+                   @include('auth.layouts.error', ['fieldName' => 'description'])
+               </div>
+                <div class="form-group text-center">
+                    <label for="description_en">@lang('main.description') en:</label>
+                    <textarea name="description_en" id="description_en" rows="4" cols="49">
+                        @isset($product){{ $product->description_en }}@endisset
+                    </textarea>
                 </div>
-                <br>
-                <div class="input-group row">
-                    <label for="image" class="col-sm-2 col-form-label">@lang('main.picture')</label>
-                    <div class="col-sm-10">
-                        <label class="btn btn-default btn-file">
-                            @lang('main.download')<input type="file" id="image" name="image" style="display: none;">
-                        </label>
-                    </div>
+               <div class="row justify-content-center">
+                    @foreach(['hit' => __('main.hit'), 'new' => __('main.new'), 'recommend' => __('main.recommended')] as $field => $title)
+                       <div
+                           @if($field === 'recommend')
+                                class="checkbox-wrapper"
+                           @else
+                               class="checkbox-wrapper mr-5"
+                           @endif
+                       >
+                           <label class="checkbox">
+                               <input  name="{{ $field }}" id="{{ $field }}" class="checkbox__trigger visuallyhidden" type="checkbox"
+                                    @if(isset($product) && $product->field === 1)
+                                        checked="'chechked"
+                                    @endif
+                               />
+                               <span class="checkbox__symbol">
+                                  <svg aria-hidden="true" class="icon-checkbox" width="28px" height="28px" viewBox="0 0 28 28" version="1" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 14l8 7L24 7"></path>
+                                  </svg>
+                                </span>
+                               <p class="checkbox__textwrapper">{{ $title }}</p>
+                           </label>
+                       </div>
+                    @endforeach
                 </div>
-                <div class="input-group row">
-                    <label for="category_id" class="col-sm-2 col-form-label">@lang('main.productProperties')</label>
-                    <div class="col-sm-6">
-                        @include('auth.layouts.error', ['fieldName' => 'property_id[]'])
-                        <select name="property_id[]" multiple>
-                            @foreach($properties as $property)
-                                <option value="{{ $property->id }}"
-                                    @isset($product)
-                                            @if($product->properties->contrains($property->id))
-                                                selected
-                                            @endif
-                                    @endisset
-                                >
-                                    {{ $property->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
+                <div class="form-group text-center mt-4">
+                    <label for="image">@lang('main.picture')</label>
+                    <label class="btn btn-default btn-file">
+                        @lang('main.upload') <input type="file" style="display: none;" name="image" id="image">
+                    </label>
                 </div>
-                <br>
-                @foreach(['hit' => __('main.hit'), 'new' => __('main.new'), 'recommend' => __('main.recommend')] as $field => $title)
-                    <div class="form-group row">
-                        <label for="code" class="col-sm-2 col-form-label">{{ $title }}</label>
-                        <div class="col-sm-10">
-                            <input type="checkbox" name="{{ $field }}" id="{{ $field }}"
-                                @if(isset($product) && $product->field === 1)
-                                    checked="'chechked"
-                                @endif
-                            >
-
-                        </div>
-                    </div>
-                @endforeach
-                <button class="btn btn-success">Сохранить</button>
-            </div>
-        </form>
+                <button type="submit" class="button-g d-block mx-auto mt-5 text-white">@lang('main.save')</button>
+            </form>
     </div>
 @endsection

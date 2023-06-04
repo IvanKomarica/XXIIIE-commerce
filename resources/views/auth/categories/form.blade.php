@@ -7,95 +7,55 @@
 @endisset
 
 @section('content')
-    <div class="col-md-12">
-        @isset($category)
-            <h1>@lang('main.editCategory')<b>{{ $category->name }}</b></h1>
-        @else
-            <h1>@lang('main.addCategory')</h1>
-        @endisset
-        <form method="POST" enctype="multipart/form-data"
-            @isset($category)
-            action="{{ route('categories.update', $category) }}"
-            @else
-            action="{{ route('categories.store') }}"
+    <div class="row justify-content-center">
+        <form method="POST" class="col-md-5 mt-5 big-shadow" style="padding: 40px; border-radius: 11px" enctype="multipart/form-data"
+              @isset($category)
+                  action="{{ route('categories.update', $category) }}"
+              @else
+                  action="{{ route('categories.store') }}"
             @endisset
         >
-            <div>
-                @isset($category)
-                    @method('PUT')
-                @endisset
-                @csrf
-                <div class="input-group-row">
-                    <label for="code" class="col-sm-2 col-form-label">@lang('main.code'): </label>
-                    <div class="col-sm-6">
-                        @error('code')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        <input type="text" class="form-control" name="code" id="code"
-                               value="{{ old('code', isset($category) ? $category->code : null ) }}"
-                        >
-                    </div>
-                </div>
-                <br>
-                <div class="input-group row">
-                    <label for="name" class="col-sm-2 col-form-label">@lang('main.data.name')</label>
-                    <div class="col-sm-6">
-                        @error('name')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        <input type="text" class="form-control" id="name" name="name" value="@isset($category){{ $category->name }}@endisset">
-                    </div>
-                </div>
-                <br>
-                <div class="input-group row">
-                    <label for="name" class="col-sm-2 col-form-label">@lang('main.data.name') en:</label>
-                    <div class="col-sm-6">
-                        @error('name_en')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        <input type="text" class="form-control" name="name_en" id="name_en"
-                            value="@isset($category){{ $category->name_en }}@endisset"
-                        >
-                    </div>
-                </div>
-                <br>
-                <div class="input-group row">
-                    <label for="description" class="col-sm-2 col-form-label">@lang('main.description')</label>
-                    <div class="col-sm-6">
-                        @error('description')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        <textarea name="description" id="description" cols="72" rows=7>
-                            @isset($category){{ $category->description }}@endisset
-                        </textarea>
-                    </div>
-                </div>
-                <br>
-                <div class="input-group row">
-                    <label for="description" class="col-sm-2 col-form-label">@lang('main.description') en:</label>
-                    <div class="col-sm-6">
-                        @error('description_en')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                        <textarea name="description_en" id="description_en" cols="72" rows="7">
-                            @isset($category){{ $category->description_en }}@endisset
-                        </textarea>
-                    </div>
-                </div>
-                <br>
-                <div class="input-group row">
-                    <label for="image" class="col-sm-2 col-form-label">@lang('main.picture')</label>
-                    <div class="col-sm-10">
-                        <label class="btn btn-default btn-file">
-                            @lang('main.upload')<input type="file" style="display: none;" name="image" id="image">
-                        </label>
-                    </div>
-                </div>
-                <button class="btn btn-success">
-                    @lang('main.save')
-                </button>
-
+            @isset($category)
+                @method('PUT')
+            @endisset
+            @csrf
+            <div class="form-group text-center">
+                <label for="code">@lang('main.code'): <span class="text-danger h3">*</span></label>
+                <input type="text" class="form-control" id="code" name="code" value="{{ old('code', isset($category) ? $category->code : null ) }}" placeholder="@lang('main.code')">
+                @include('auth.layouts.error', ['fieldName' => 'code'])
+                {{--                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>--}}
             </div>
+            <div class="form-group text-center">
+                <label for="name">@lang('main.data.name'): <span class="text-danger h3">*</span></label>
+                <input type="text" class="form-control" id="name" name="name" value="@isset($category){{ $category->name }}@endisset" placeholder="@lang('main.data.name')">
+                @include('auth.layouts.error', ['fieldName' => 'name'])
+            </div>
+            <div class="form-group text-center">
+                <label for="name_en">@lang('main.data.name') en: </label>
+                <input type="text" class="form-control" id="name_en" name="name_en" value="@isset($category){{ $category->name_en }}@endisset" placeholder="@lang('main.data.name') en:">
+                @include('auth.layouts.error', ['fieldName' => 'name_en'])
+            </div>
+            <div class="form-group text-center">
+                <label for="description">@lang('main.description')  <span class="text-danger h3">*</span></label>
+                <textarea name="description" id="description"  rows="4" cols="49">
+                       @isset($category){{ $category->description  }}@endisset
+                   </textarea>
+                @include('auth.layouts.error', ['fieldName' => 'description'])
+            </div>
+            <div class="form-group text-center">
+                <label for="description_en">@lang('main.description') en:</label>
+                <textarea name="description_en" id="description_en" rows="4" cols="49">
+                        @isset($category){{ $category->description_en }}@endisset
+                    </textarea>
+            </div>
+            <div class="form-group text-center mt-4">
+                <label for="image">@lang('main.picture')</label>
+                <label class="btn btn-default btn-file">
+                    @lang('main.upload') <input type="file" style="display: none;" name="image" id="image">
+                </label>
+            </div>
+            <button type="submit" class="button-g d-block mx-auto mt-5 text-white">@lang('main.save')</button>
         </form>
     </div>
+
 @endsection

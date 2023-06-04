@@ -1,9 +1,11 @@
 @extends('auth.layouts.master')
 @section('title', __('main.product' . $product->name))
 @section('content')
-    <div class="col-md-12">
+    <div class="row justify-content-center mb-5 mt-5">
         <h1>{{ $product->name }}</h1>
-        <table class="table">
+    </div>
+    <div class="row justify-content-center">
+        <table class="table-filled col-md-6">
             <tbody>
                 <tr>
                     <th>@lang('main.field')</th>

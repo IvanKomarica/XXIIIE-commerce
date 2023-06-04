@@ -1,13 +1,15 @@
 @extends('auth.layouts.master')
 @section('title', __('main.order') . $order->id)
 @section('content')
-    <div class="py-4">
-        <div class="container">
+            <div class="row justify-content-center mt-5 mb-5">
+                <div class="d-flex flex-column">
+                    <h1 >@lang('main.order')# {{ $order->id }}</h1>
+                    <p >@lang('main.customer'): <b> {{ $order->name }} </b></p>
+                    <p >@lang('main.data.phone'): <b> {{ $order->phone }}</b></p>
+                </div>
+            </div>
             <div class="justify-content-center">
                 <div class="panel">
-                    <h1>@lang('main.order')# {{ $order->id }}</h1>
-                    <p>@lang('main.customer'): <b> {{ $order->name }} </b></p>
-                    <p>@lang('main.data.phone'): <b> {{ $order->phone }}</b></p>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -38,6 +40,6 @@
                     </table>
                 </div>
             </div>
-        </div>
+
     </div>
 @endsection

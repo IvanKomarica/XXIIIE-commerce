@@ -5,7 +5,7 @@
         <h1 class="mt-5">@lang('main.cart')</h1>
     </div>
     <div class="row mb-5 justify-content-center">
-        <h4 class="border border-bottom border-dark ">@lang('main.ordering')</h4>
+        <h4 >@lang('main.ordering')</h4>
     </div>
     <div class="panel mt-5">
         <table class="table table-striped">
@@ -30,21 +30,20 @@
                                     {{ $product->pivot->count }}
                                     <form method="post" action="{{ route('basket-add', $product) }}">
                                         @csrf
-                                        <button type="submit" class="btn btn-success">
-                                            +
+                                        <button style="width: 30px; height: 30px;" type="submit" class="button-g">
+                                            <i class="fas fa-plus text-white mx-auto my-auto"></i>
                                         </button>
                                     </form>
                                     <form method="post" action="{{ route('basket-remove', $product) }}">
                                         @csrf
-                                        <button type="submit" class="btn btn-danger">
-                                            -
+                                        <button style="width: 30px; height: 30px;" type="submit" class="button-r">
+                                            <i class="fas fa-minus text-white  mx-auto my-auto"></i>
                                         </button>
                                     </form>
                                 </div>
                             </td>
                             <td>{{ $product->price }}</td>
-                            <td></td>
-                            <td ><a href="#">{{ $product->getPriceForCount() }}</a></td>
+                            <td><a href="#">{{ $product->getPriceForCount() }}</a></td>
                         </tr>
                     @endforeach
                     <tr>
@@ -56,7 +55,7 @@
         </table>
         <br>
         <div class="btn-group pull-right" role="group">
-            <a class="btn btn-success" href="{{ route('order-place') }}">Checkout</a>
+            <a class="button-g text-white" href="{{ route('order-place') }}">Checkout</a>
         </div>
     </div>
 @endsection

@@ -61,6 +61,10 @@ class Product extends Model
         return $this->recommend === 1;
     }
 
+    public function isAvaliable()
+    {
+        return $this->count > 0;
+    }
     public function scopeHit($query)
     {
         return $query->where('hit', 1);
