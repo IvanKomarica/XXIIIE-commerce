@@ -7,7 +7,7 @@
     <p>{{ $category->description }}</p>
     <div class="row mt-5 justify-content-center">
         @foreach($category->products as $product)
-            @include('partials.card', compact('product'))
+            @include('partials.product_card', compact('product'))
         @endforeach
     </div>
 @endsection

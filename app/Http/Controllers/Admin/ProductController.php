@@ -100,7 +100,7 @@ class ProductController extends Controller
                 $params[$fieldName] = 0;
             }
         }
-        $product->properties()->sync($request->property_id);
+//        $product->properties()->sync($request->property_id);
         $product->update($params);
         return redirect()->route('products.index');
     }
@@ -114,6 +114,6 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 }

@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function() {
             Route::get('/orders', 'Admin\OrderController@index')->name('home');
             Route::get('/orders/{order}', 'Admin\OrderController@show')->name('orders.show');
             Route::resource('categories', 'Admin\CategoryController');
+            Route::resource('products', 'Admin\ProductController');
         });
     });
 });
