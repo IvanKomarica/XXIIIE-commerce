@@ -7,125 +7,74 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## XXIIE-commerce project
+## XXIIIE-commerce
 
+<!-- Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-[//]: # (Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:)
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-[//]: # ()
-[//]: # (- [Simple, fast routing engine]&#40;https://laravel.com/docs/routing&#41;.)
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-[//]: # (- [Powerful dependency injection container]&#40;https://laravel.com/docs/container&#41;.)
+## Learning Laravel
 
-[//]: # (- Multiple back-ends for [session]&#40;https://laravel.com/docs/session&#41; and [cache]&#40;https://laravel.com/docs/cache&#41; storage.)
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-[//]: # (- Expressive, intuitive [database ORM]&#40;https://laravel.com/docs/eloquent&#41;.)
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-[//]: # (- Database agnostic [schema migrations]&#40;https://laravel.com/docs/migrations&#41;.)
+## Laravel Sponsors
 
-[//]: # (- [Robust background job processing]&#40;https://laravel.com/docs/queues&#41;.)
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-[//]: # (- [Real-time event broadcasting]&#40;https://laravel.com/docs/broadcasting&#41;.)
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- [UserInsights](https://userinsights.com)
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
+- [TECPRESSO](https://tecpresso.co.jp/)
+- [Runtime Converter](http://runtimeconverter.com/)
+- [WebL'Agence](https://weblagence.com/)
+- [Invoice Ninja](https://www.invoiceninja.com)
+- [iMi digital](https://www.imi-digital.de/)
+- [Earthlink](https://www.earthlink.ro/)
+- [Steadfast Collective](https://steadfastcollective.com/)
+- [We Are The Robots Inc.](https://watr.mx/)
+- [Understand.io](https://www.understand.io/)
+- [Abdel Elrafa](https://abdelelrafa.com)
+- [Hyper Host](https://hyper.host)
+- [Appoly](https://www.appoly.co.uk)
+- [OP.GG](https://op.gg)
 
-[//]: # ()
-[//]: # (Laravel is accessible, powerful, and provides tools required for large, robust applications.)
+## Contributing
 
-[//]: # ()
-[//]: # (## Learning Laravel)
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-[//]: # ()
-[//]: # (Laravel has the most extensive and thorough [documentation]&#40;https://laravel.com/docs&#41; and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.)
+## Code of Conduct
 
-[//]: # ()
-[//]: # (If you don't feel like reading, [Laracasts]&#40;https://laracasts.com&#41; can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.)
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-[//]: # ()
-[//]: # (## Laravel Sponsors)
+## Security Vulnerabilities
 
-[//]: # ()
-[//]: # (We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page]&#40;https://patreon.com/taylorotwell&#41;.)
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-[//]: # ()
-[//]: # (- **[Vehikl]&#40;https://vehikl.com/&#41;**)
+## License
 
-[//]: # (- **[Tighten Co.]&#40;https://tighten.co&#41;**)
-
-[//]: # (- **[Kirschbaum Development Group]&#40;https://kirschbaumdevelopment.com&#41;**)
-
-[//]: # (- **[64 Robots]&#40;https://64robots.com&#41;**)
-
-[//]: # (- **[Cubet Techno Labs]&#40;https://cubettech.com&#41;**)
-
-[//]: # (- **[Cyber-Duck]&#40;https://cyber-duck.co.uk&#41;**)
-
-[//]: # (- **[British Software Development]&#40;https://www.britishsoftware.co&#41;**)
-
-[//]: # (- **[Webdock, Fast VPS Hosting]&#40;https://www.webdock.io/en&#41;**)
-
-[//]: # (- **[DevSquad]&#40;https://devsquad.com&#41;**)
-
-[//]: # (- [UserInsights]&#40;https://userinsights.com&#41;)
-
-[//]: # (- [Fragrantica]&#40;https://www.fragrantica.com&#41;)
-
-[//]: # (- [SOFTonSOFA]&#40;https://softonsofa.com/&#41;)
-
-[//]: # (- [User10]&#40;https://user10.com&#41;)
-
-[//]: # (- [Soumettre.fr]&#40;https://soumettre.fr/&#41;)
-
-[//]: # (- [CodeBrisk]&#40;https://codebrisk.com&#41;)
-
-[//]: # (- [1Forge]&#40;https://1forge.com&#41;)
-
-[//]: # (- [TECPRESSO]&#40;https://tecpresso.co.jp/&#41;)
-
-[//]: # (- [Runtime Converter]&#40;http://runtimeconverter.com/&#41;)
-
-[//]: # (- [WebL'Agence]&#40;https://weblagence.com/&#41;)
-
-[//]: # (- [Invoice Ninja]&#40;https://www.invoiceninja.com&#41;)
-
-[//]: # (- [iMi digital]&#40;https://www.imi-digital.de/&#41;)
-
-[//]: # (- [Earthlink]&#40;https://www.earthlink.ro/&#41;)
-
-[//]: # (- [Steadfast Collective]&#40;https://steadfastcollective.com/&#41;)
-
-[//]: # (- [We Are The Robots Inc.]&#40;https://watr.mx/&#41;)
-
-[//]: # (- [Understand.io]&#40;https://www.understand.io/&#41;)
-
-[//]: # (- [Abdel Elrafa]&#40;https://abdelelrafa.com&#41;)
-
-[//]: # (- [Hyper Host]&#40;https://hyper.host&#41;)
-
-[//]: # (- [Appoly]&#40;https://www.appoly.co.uk&#41;)
-
-[//]: # (- [OP.GG]&#40;https://op.gg&#41;)
-
-[//]: # ()
-[//]: # (## Contributing)
-
-[//]: # ()
-[//]: # (Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation]&#40;https://laravel.com/docs/contributions&#41;.)
-
-[//]: # ()
-[//]: # (## Code of Conduct)
-
-[//]: # ()
-[//]: # (In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct]&#40;https://laravel.com/docs/contributions#code-of-conduct&#41;.)
-
-[//]: # ()
-[//]: # (## Security Vulnerabilities)
-
-[//]: # ()
-[//]: # (If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com]&#40;mailto:taylor@laravel.com&#41;. All security vulnerabilities will be promptly addressed.)
-
-[//]: # ()
-[//]: # (## License)
-
-[//]: # ()
-[//]: # (The Laravel framework is open-sourced software licensed under the [MIT license]&#40;https://opensource.org/licenses/MIT&#41;.)
-
-[//]: # ("# online-shop-" )
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+"# online-shop-" 
+ -->
