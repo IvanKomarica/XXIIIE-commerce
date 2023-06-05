@@ -4,7 +4,7 @@
         <img src="{{ Storage::url($product->image) }}" alt="">
         <div class="caption" style="border-radius: 12px">
             <h3>{{ $product->name }}</h3>
-            <p>{{ $product->price }}</p>
+            <p>{{ $product->getFormattedPrice($product->price) }}</p>
             <a href="">{{ $product->category->name }}</a>
             <div class="row justify-content-center mt-5 mb-4">
                 <form method="post" action="{{ route('basket-add', $product) }}">
