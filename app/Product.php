@@ -2,15 +2,14 @@
 
 namespace App;
 
-//use App\Models\Traits\Translatable;
-//use \Traits\Translatable;
 use App\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\DataFormat;
 
 class Product extends Model
 {
-    use SoftDeletes, Translatable;
+    use SoftDeletes, Translatable, DataFormat;
 
     protected $fillable = ['name', 'code', 'price', 'category_id', 'description', 'image', 'hit', 'new', 'recommend'];
 
@@ -76,5 +75,10 @@ class Product extends Model
     public function scopeRecommend($query)
     {
         return $query->where('recommend', 1);
+    }
+
+    public function scopeByCode($query, $code)
+    {
+        return $query->where('code', $code);
     }
 }
